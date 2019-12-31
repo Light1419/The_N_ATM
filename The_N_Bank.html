@@ -1,0 +1,142 @@
+<html>
+<head>
+<script>
+function atm()
+{
+  
+  var withdrawAmount=document.getElementById("amount").value;
+  
+  var Notes=[["Two-Thousand",0],["One-Thousand",0],["Five-Hundred",0],["Two-Hundred",0],["Hundred",0]];
+  
+  var money=withdrawAmount; 
+  var notesLeft=[["Two-Thousand",0],["One-Thousand",0],["Five-Hundred",0],["Two-Hundred",0],["Hundred",0]];
+  notesLeft[0][1]=document.getElementById("two-thousand").value;
+  notesLeft[1][1]=document.getElementById("one-thousand").value;
+  notesLeft[2][1]=document.getElementById("five-hundred").value;
+  notesLeft[3][1]=document.getElementById("two-hundred").value;
+  notesLeft[4][1]=document.getElementById("one-hundred").value;
+ 
+  var MoneyInMachine=(2000*notesLeft[0][1]+1000*notesLeft[1][1]+500*notesLeft[2][1]+200*notesLeft[3][1]+100*notesLeft[4][1]);
+  
+   if(withdrawAmount>(MoneyInMachine))
+    {
+      document.write(" Sorry!!!! Not Enough Money In the Machine");
+      return;
+    }
+ 
+  
+   
+      if(money>=2000)          //2000 rupees withdraw
+        {
+          if(money>2000*notesLeft[0][1])
+            {
+              Notes[0][1]=notesLeft[0][1];
+              money-=notesLeft[0][1]*2000;
+              notesLeft[0][1]=0;
+            }
+          else
+            {
+              Notes[0][1]=parseInt(money/2000);
+              money-=Notes[0][1]*2000;
+              notesLeft[0][1]-=Notes[0][1];
+            }
+        }
+  
+       if(money>=1000)        // one thousandmoney withdraw
+        {
+          if(money>1000*notesLeft[1][1])
+            {
+              Notes[1][1]=notesLeft[1][1];
+              money-=notesLeft[1][1]*2000;
+              notesLeft[1][1]=0;
+            }
+          else
+            {
+              Notes[1][1]=parseInt(money/1000);
+              money-=Notes[1][1]*1000;
+              notesLeft[1][1]-=Notes[1][1];
+            }
+        }
+  
+       if(money>=500)
+        {
+          if(money>500*notesLeft[2][1])
+            {
+              Notes[2][1]=notesLeft[2][1];
+              money-=notesLeft[2][1]*500;
+              notesLeft[2][1]=0;
+            }
+          else
+            {
+              Notes[2][1]=parseInt(money/500);
+              money-=Notes[2][1]*500;
+              notesLeft[2][1]-=Notes[2][1];
+            }
+        }
+  
+       if(money>=200)
+        {
+          if(money>200*notesLeft[3][1])
+            {
+              Notes[3][1]=notesLeft[3][1];
+              money-=notesLeft[3][1]*200;
+              notesLeft[3][1]=0;
+            }
+          else
+            {
+              Notes[3][1]=parseInt(money/200);
+              money-=Notes[3][1]*200;
+              notesLeft[3][1]-=Notes[3][1];
+            }
+        }
+  
+       if(money>=100)
+        {
+          if(money>100*notesLeft[4][1])
+            {
+              Notes[4][1]=notesLeft[4][1];
+              money-=notesLeft[4][1]*100;
+              notesLeft[4][1]=0;
+            }
+          else
+            {
+              Notes[4][1]=parseInt(money/100);
+              money-=Notes[4][1]*100;
+              notesLeft[4][1]-=Notes[4][1];
+            }
+        }
+  
+  document.write("Total Amount Requested for Withdraw = "+withdrawAmount+"<br> <br>");
+ for(var i=0;i<Notes.length;i++)
+  {
+    document.write(Notes[i][0]+" Notes Withdrawl "+" = "+Notes[i][1]+"<br>"+"Notes Left in machine of "+notesLeft[i][0]+" = "+notesLeft[i][1]+"<br><br><br>");
+    
+    
+  }
+  document.write("Thank you for Using The_N bank");
+
+
+
+    
+  
+}
+</script>
+
+</head>
+<body>
+
+
+
+<table align=center>
+  <form name="f1" onsubmit="atm()" >
+    <tr><td>Enter the Notes In The Machine (Only Admins)</td><t</tr>
+    <tr><td>2000 Rs/-</td><td><input type=text id="two-thousand" value='0'></td><tr><td>1000 Rs/-</td><td><input type=text id="one-thousand"value='0'></td></tr><tr><td>500 Rs/-</td><td><input type=text id="five-hundred" value='0'></td></tr><tr><td>200 Rs/-</td><td><input type=text id="two-hundred" value='0'></td><tr><td>100 Rs/-</td><td><input type=text id="one-hundred" value='0'></td></tr>
+  <tr><td>Enter The Amount to Withdraw ( Only User)</td><td><input type ="text" id="amount" name"cal" value="0"></td></tr>
+  <tr><td><input type="submit" value="submit"></td></tr>
+  </form>
+
+  <tr><td><p id=demo1> </p></td></tr>
+  <tr><td><p id=demo2> </p></td></tr>
+  </table>
+</body>
+</html>
