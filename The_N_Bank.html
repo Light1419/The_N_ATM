@@ -9,12 +9,14 @@ function atm()
   var Notes=[["Two-Thousand",0],["Five-Hundred",0],["Two-Hundred",0],["Hundred",0]];
   
   var money=withdrawAmount; 
-  var notesLeft=[["Two-Thousand",0],["Five-Hundred",0],["Two-Hundred",0],["Hundred",0]];
-  notesLeft[0][1]=document.getElementById("two-thousand").value;
-  notesLeft[1][1]=document.getElementById("five-hundred").value;
-  notesLeft[2][1]=document.getElementById("two-hundred").value;
-  notesLeft[3][1]=document.getElementById("one-hundred").value;
 
+  var notesLeft=[["Two-Thousand",0],["Five-Hundred",0],["Two-Hundred",0],["Hundred",0]];
+ 
+   for(var i=0;i<notesLeft.length;i++)
+   {
+  notesLeft[i][1]=document.getElementById(Notes[i][0]).value;
+   }
+  
   var array=[2000,500,200,100];
   
   var MoneyInMachine=(2000*notesLeft[0][1]+500*notesLeft[1][1]+200*notesLeft[2][1]+100*notesLeft[3][1]);
